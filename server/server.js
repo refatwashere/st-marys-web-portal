@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 const JWT_SECRET = process.env.JWT_SECRET || 'changeme';
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
