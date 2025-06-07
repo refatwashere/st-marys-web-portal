@@ -12,7 +12,7 @@ const App = () => {
   const [message, setMessage] = useState('');
 
   // IMPORTANT: Replace with your deployed backend URL if not running locally
-  const API_BASE_URL = 'https://smis-portal.onrender.com';
+  const API_BASE_URL = 'http://localhost:10000';
 
   useEffect(() => {
     console.log(`Frontend configured to use API_BASE_URL: ${API_BASE_URL}`);
