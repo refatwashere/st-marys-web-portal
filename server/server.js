@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
 
 const app = express();
-const PORT = process.env.PORT || 10000;
-const JWT_SECRET = process.env.JWT_SECRET || 'changeme';
+const PORT = process.env.PORT;
+const JWT_SECRET = process.env.JWT_SECRET;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 app.use(cors());
@@ -204,5 +204,92 @@ app.post('/api/students/:studentId/updates', authenticateToken, async (req, res)
 
 app.listen(PORT, () => {
   console.log(`SMIS - WEB PORTAL Backend running on port ${PORT}`);
-  console.log(`Access the backend at: http://localhost:${PORT}`);
+  console.log(`Access the backend at: https://smis-server.onrender.com:${PORT}`);
+  console.log(`Database connected: ${process.env.DATABASE_URL}`);
+  console.log(`JWT Secret: ${JWT_SECRET}`);
+  console.log(`CORS enabled for all origins`);
+  console.log(`API Documentation: https://smis-server.onrender.com/api-docs`);
+  console.log(`Default teacher credentials: username: teacher, password: password`);
+  console.log(`To change the default teacher credentials, update the .env file`);
+  console.log(`To change the JWT secret, update the .env file`);
+  console.log(`To change the database connection string, update the .env file`);
+  console.log(`To change the server port, update the .env file or use the PORT environment variable`);
+  console.log(`To access the API, use the following endpoints:
+  - POST /api/login: Login to get a JWT token
+  - GET /api/classes: Get all classes
+  - POST /api/classes: Create a new class
+  - GET /api/classes/:classId/materials: Get materials for a class
+  - POST /api/classes/:classId/materials: Add material to a class
+  - GET /api/classes/:classId/students: Get students in a class
+  - POST /api/classes/:classId/students: Add a student to a class
+  - GET /api/students/:studentId/updates: Get updates for a student
+  - POST /api/students/:studentId/updates: Add an update for a student`);
+  console.log(`To access the API documentation, visit: https://smis-server.onrender.com/api-docs`);
+  console.log(`To access the frontend, visit: https://smis-portal.onrender.com`);
+  console.log(`To report issues or contribute, visit:www.github.com/refatwashere/smis-web-portal`);
+  console.log(`Thank you for using SMIS Web Portal!`);
 });
+// Export the app for testing
+module.exports = app;
+// Export the pool for database access in other modules
+module.exports.pool = pool;
+// Export the JWT secret for use in other modules
+module.exports.JWT_SECRET = JWT_SECRET;
+// Export the PORT for use in other modules
+module.exports.PORT = PORT;
+// Export the setupDatabase function for use in other modules
+module.exports.setupDatabase = setupDatabase;
+// Export the authenticateToken middleware for use in other modules
+module.exports.authenticateToken = authenticateToken;
+// Export the express app for use in other modules
+module.exports.app = app;
+// Export the bcrypt library for use in other modules
+module.exports.bcrypt = bcrypt;
+// Export the jwt library for use in other modules
+module.exports.jwt = jwt;
+// Export the dotenv library for use in other modules
+module.exports.dotenv = require('dotenv');
+// Export the cors library for use in other modules
+module.exports.cors = cors;
+// Export the express library for use in other modules
+module.exports.express = express;
+// Export the Pool class from pg for use in other modules
+module.exports.Pool = Pool;
+// Export the process.env for use in other modules
+module.exports.processEnv = process.env;
+// Export the console for use in other modules
+module.exports.console = console;
+// Export the require function for use in other modules
+module.exports.require = require;
+// Export the global object for use in other modules
+module.exports.global = global;
+// Export the module object for use in other modules
+module.exports.module = module;
+// Export the __dirname for use in other modules
+module.exports.__dirname = __dirname;
+// Export the __filename for use in other modules
+module.exports.__filename = __filename;
+// Export the path module for use in other modules
+module.exports.path = require('path');
+// Export the fs module for use in other modules
+module.exports.fs = require('fs');
+// Export the os module for use in other modules
+module.exports.os = require('os');
+// Export the http module for use in other modules
+module.exports.http = require('http');
+// Export the https module for use in other modules
+module.exports.https = require('https');
+// Export the url module for use in other modules
+module.exports.url = require('url');
+// Export the querystring module for use in other modules
+module.exports.querystring = require('querystring');
+// Export the util module for use in other modules
+module.exports.util = require('util');
+// Export the crypto module for use in other modules
+module.exports.crypto = require('crypto');
+// Export the zlib module for use in other modules
+module.exports.zlib = require('zlib');
+// Export the stream module for use in other modules
+module.exports.stream = require('stream');
+// Export the events module for use in other modules
+module.exports.events = require('events');  
